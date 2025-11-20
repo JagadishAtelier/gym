@@ -3996,7 +3996,7 @@ figcaption {
     background-color: color-mix(in hsl, var(--_colors---error)30%, transparent 80%)
 }
 
-@media screen and (max-width:991px) {
+/* @media screen and (max-width:991px) {
     body {
         --fonts--normal-font: Inter, sans-serif;
         --font-weight--medium: 500;
@@ -5033,4 +5033,4 @@ figcaption {
     #w-node-d1808e80-694b-7c74-17ca-7f6efd107e6d-f7b75dd1 {
         grid-column-start: 2
     }
-}
+} */

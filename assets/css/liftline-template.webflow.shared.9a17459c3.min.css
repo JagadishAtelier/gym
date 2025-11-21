@@ -2237,7 +2237,7 @@ textarea.w-select {
     --_sizing---spacing--12: 12px;
     --_sizing---radius--24: 24px;
     --_sizing---radius--full: 100vw;
-    --_colors---brand-primary: #ff7157;
+    --_colors---brand-primary: red;
     --_colors---brand-secondary: #181818;
     --_colors---text-primary: var(--_colors---foreground);
     --_colors---brand-secondary-hover: color-mix(in hsl, var(--_colors---brand-secondary)95%, white 5%);
@@ -2518,7 +2518,6 @@ figcaption {
 
 .button.secondary {
     background-color: var(--_colors---brand-secondary);
-    color: var(--_colors---text-primary)
 }
 
 .button.secondary:hover {
@@ -2526,7 +2525,8 @@ figcaption {
 }
 
 .button.primary {
-    z-index: 1
+    z-index: 1;
+    color: var(--_colors---foreground);
 }
 
 .button.primary:hover {
@@ -2534,7 +2534,7 @@ figcaption {
 }
 
 .button.tertiary {
-    background-color: var(--_colors---foreground)
+    background-color: var(--_colors---foreground);
 }
 
 .button.tertiary:hover {
@@ -2589,7 +2589,7 @@ figcaption {
 }
 
 .accordion-toggle:hover {
-  background-color: #ff7157 !important;
+  background-color: var(--_colors---brand-primary) !important;
   color: #000 !important;
 }
 
@@ -2836,6 +2836,7 @@ figcaption {
     align-items: center;
     display: flex
 }
+
 
 .button-inner {
     grid-column-gap: 8px;

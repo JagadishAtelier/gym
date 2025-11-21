@@ -2237,7 +2237,7 @@ textarea.w-select {
     --_sizing---spacing--12: 12px;
     --_sizing---radius--24: 24px;
     --_sizing---radius--full: 100vw;
-    --_colors---brand-primary: #d0ff59;
+    --_colors---brand-primary: #ff7157;
     --_colors---brand-secondary: #181818;
     --_colors---text-primary: var(--_colors---foreground);
     --_colors---brand-secondary-hover: color-mix(in hsl, var(--_colors---brand-secondary)95%, white 5%);
@@ -2589,7 +2589,7 @@ figcaption {
 }
 
 .accordion-toggle:hover {
-  background-color: #d0ff59 !important;
+  background-color: #ff7157 !important;
   color: #000 !important;
 }
 

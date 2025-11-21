@@ -19,6 +19,9 @@
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
   <link href="assets/css/liftline-template.webflow.shared.9a17459c3.min.css" rel="stylesheet" type="text/css">
   <style>
     @media (min-width:992px) {
@@ -577,6 +580,68 @@
       </div>
     </div>
   </section>
+
+  <section class="insta-reels">
+    <div class="global-section-name">(Social)</div>
+    <div class="insta-header">
+      <h2>Follow Us on Instagram</h2>
+      <a href="https://instagram.com/flexculture_01" target="_blank" class="insta-arrow">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 18L18 6M18 6H6M18 6V18" stroke="white" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+
+
+    <div class="swiper instaSwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Reel Card -->
+        <div class="swiper-slide reel-card">
+          <video class="reel-video" src="assets/videos/reels1.mp4" muted playsinline
+            data-link="https://instagram.com/flexculture_01">
+          </video>
+          <div class="video-overlay">
+            <svg viewBox="0 0 64 64">
+              <polygon points="16,12 52,32 16,52" />
+            </svg>
+          </div>
+        </div>
+        <div class="swiper-slide reel-card">
+          <video class="reel-video" src="assets/videos/reels2.mp4" muted playsinline
+            data-link="https://instagram.com/flexculture_01">
+          </video>
+          <div class="video-overlay">
+            <svg viewBox="0 0 64 64">
+              <polygon points="16,12 52,32 16,52" />
+            </svg>
+          </div>
+        </div>
+        <div class="swiper-slide reel-card">
+          <video class="reel-video" src="assets/videos/reels3.mp4" muted playsinline
+            data-link="https://instagram.com/flexculture_01">
+          </video>
+          <div class="video-overlay">
+            <svg viewBox="0 0 64 64">
+              <polygon points="16,12 52,32 16,52" />
+            </svg>
+          </div>
+        </div>
+        <div class="swiper-slide reel-card">
+          <video class="reel-video" src="assets/videos/reels4.mp4" muted playsinline
+            data-link="https://instagram.com/flexculture_01">
+          </video>
+          <div class="video-overlay">
+            <svg viewBox="0 0 64 64">
+              <polygon points="16,12 52,32 16,52" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="section-pricing">
     <div class="plan-section">
       <div class="w-layout-blockcontainer global-container w-container">
@@ -971,14 +1036,15 @@
           © <span id="year"></span> Flex Culture
         </div>
         <div class="footer-foot-separator"></div>
-        <div class="footer-foot-text">Powered by <a href="https://theateliercreation.com/" class="footer-link">Atelier</a></div>
+        <div class="footer-foot-text">Powered by <a href="https://theateliercreation.com/"
+            class="footer-link">Atelier</a></div>
       </div>
     </div>
   </section>
-  
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
   <script>
     document.querySelectorAll('.accordion-card').forEach((card) => {
       const heading = card.querySelector('.accordion-heading');
@@ -1019,11 +1085,79 @@
       });
     });
   </script>
+  <script>
+    const swiper = new Swiper(".instaSwiper", {
+      slidesPerView: 1.2,
+      spaceBetween: 15,
+      centeredSlides: true,
+      breakpoints: {
+        768: {
+          slidesPerView: 4,
+          centeredSlides: false
+        }
+      }
+    });
+
+    // Detect mobile vs desktop
+    const isMobile = window.innerWidth < 768;
+
+    function playActiveVideo() {
+      document.querySelectorAll(".reel-video").forEach((video, idx) => {
+        if (idx === swiper.activeIndex) {
+          if (isMobile) {
+            video.muted = true;
+            video.play().catch(() => { });
+          }
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+    }
+
+    // Initial autoplay on load for mobile
+    if (isMobile) playActiveVideo();
+
+    // Play video when slide changes
+    swiper.on('slideChange', () => {
+      if (isMobile) playActiveVideo();
+    });
+
+    // Overlay click on desktop
+    if (!isMobile) {
+      document.querySelectorAll(".video-overlay").forEach((overlay, idx) => {
+        overlay.addEventListener("click", () => {
+          const video = overlay.previousElementSibling;
+          video.play();
+          overlay.style.display = "none"; // hide overlay
+        });
+      });
+    }
+
+    // Redirect to Instagram on video click
+    document.querySelectorAll(".reel-video").forEach(video => {
+      video.addEventListener("click", () => {
+        window.open(video.dataset.link, "_blank");
+      });
+
+      // Auto slide to next when video ends
+      video.addEventListener("ended", () => {
+        swiper.slideNext();
+        if (!isMobile && video.parentElement.querySelector(".video-overlay")) {
+          video.parentElement.querySelector(".video-overlay").style.display = "flex";
+        }
+      });
+    });
+  </script>
+
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="assets/js/webflow.schunk.36b8fb49256177c8.js" type="text/javascript"></script>
   <script src="assets/js/webflow.schunk.0086638d689dd641.js" type="text/javascript"></script>
   <script src="assets/js/webflow.schunk.b4435221be879eb3.js" type="text/javascript"></script>
   <script src="assets/js/webflow.b5d99643.072e72eab88b7111.js" type="text/javascript"></script>
+  <script async src="https://www.instagram.com/embed.js"></script>
 </body>
 
 </html>

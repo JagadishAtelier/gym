@@ -5172,3 +5172,11 @@ figcaption {
     width: 80%;
   }
 }
+@media(max-width: 480px) {
+  .footer-logo-link{
+    height: 70px;
+  }
+  .navbar-logo{
+    height: 50px;
+  }
+}

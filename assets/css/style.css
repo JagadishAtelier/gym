@@ -5201,7 +5201,7 @@ figcaption {
   }
 
   .swiper-slide {
-    width: 350px !important;
+    width: 100% !important;
   }
 
   .video-overlay {

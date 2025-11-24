@@ -2968,11 +2968,14 @@ figcaption {
     z-index: 5;
     padding-top: var(--_sizing---spacing--16);
     padding-bottom: var(--_sizing---spacing--16);
-    background-color: #0000;
+    /* background-color: #0000; */
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    position: fixed
+    position: fixed;
+    background: rgba(255, 255, 255, 0.01); /* transparent glass layer */
+  backdrop-filter: blur(12px);           /* frosted blur effect */
+  -webkit-backdrop-filter: blur(12px);   /* Safari support */
 }
 
 .navbar-wrapper {
@@ -3059,7 +3062,7 @@ figcaption {
 }
 
 .hero {
-    background-image: url(https://cdn.prod.website-files.com/6885ed75e6aefae7f7b75de0/688b9e285785c8eea3777b8f_hero.webp);
+    background-image: url(../images/hero-banner.jpg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -3069,6 +3072,34 @@ figcaption {
     position: relative;
     overflow: hidden
 }
+/* OVERLAY LAYERS (BEHIND TEXT) */
+.hero-gradient-overlay.back,
+.hero-gradient-overlay.front {
+  position: absolute;
+  inset: 0;
+  z-index: 1; /* BEHIND text */
+}
+
+/* Overlay Colors */
+.hero-gradient-overlay.back {
+  background: rgba(0, 0, 0, 0.45);  /* mild dark overlay */
+}
+
+.hero-gradient-overlay.front {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
+/* TEXT + CONTENT ABOVE OVERLAY */
+.hero-inner,
+.hero-left,
+.hero-right {
+  position: relative;
+  z-index: 5 !important; /* ABOVE overlay */
+}
+
 
 .hero-heading {
     margin-bottom: var(--_typography---mega-heading--margin-bottom);
@@ -3115,7 +3146,7 @@ figcaption {
     position: relative
 }
 
-.hero-gradient-overlay {
+/* .hero-gradient-overlay {
     background-image: linear-gradient(180deg, transparent, var(--_colors---background));
     pointer-events: none;
     height: 40vh;
@@ -3127,7 +3158,7 @@ figcaption {
     z-index: 1;
     background-image: linear-gradient(180deg, transparent, var(--_colors---background)80%);
     height: 0
-}
+} */
 
 .hero-rating-content {
     margin-left: var(--_sizing---spacing--16);
@@ -4273,7 +4304,7 @@ figcaption {
     }
 
     .hero-gradient-overlay {
-        height: 200px
+        height: 100%
     }
 
     .hero-inner {
@@ -4603,7 +4634,7 @@ figcaption {
     }
 
     .hero-gradient-overlay {
-        height: 100px
+        height: 100%
     }
 
     .usp-wrapper {
@@ -4845,7 +4876,7 @@ figcaption {
     }
 
     .hero-gradient-overlay {
-        height: 40px
+        height: 100%
     }
 
     .hero-inner {

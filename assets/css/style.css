@@ -3303,14 +3303,7 @@ figcaption {
     display: flex
 }
 
-.navbar-overlay {
-    opacity: 0;
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
-    background-color: #ffffff05;
-    position: absolute;
-    inset: 0%
-}
+
 
 .about-section-wrapper {
     grid-column-gap: 16px;
@@ -3332,7 +3325,8 @@ figcaption {
 }
 
 .about-paragraph {
-    font-size: var(--_typography---h4--font-size)
+    font-size: var(--_typography---h4--font-size);
+    text-align: center;
 }
 
 .hero-cta-text {
@@ -3497,6 +3491,10 @@ figcaption {
 
 .class-heading {
     margin-bottom: 0
+}
+.about-heading{
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .usp-number {
@@ -5240,6 +5238,14 @@ figcaption {
 
 /* Mobile - ~1.2 slides */
 @media(max-width: 767px) {
+    .navbar-overlay {
+    opacity: 0;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: #ffffff05;
+    position: absolute;
+    inset: 0%
+}
   .swiper-slide {
     width: 80%;
   }

@@ -4591,6 +4591,7 @@ span {
 
     .trainer-grid {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding-top: 300vh !important;
         padding-bottom: 0 !important;
     }
 }
@@ -5489,8 +5490,7 @@ span {
     .about-paragraph {
         text-align: justify;
     }
-    .insta-track {
-        
+    .insta-track { 
   width: max-content;
     }
 }

@@ -5096,6 +5096,9 @@ span {
     .hero-swiper .swiper-slide:nth-child(2) .hero {
   background-position: center 50%;
 }
+.hero-swiper .swiper-slide:nth-child(3) .hero {
+  background-position: center 50%;
+}
 
     .hero-gradient-overlay {
         height: 100%
@@ -5397,7 +5400,7 @@ span {
 .insta-track {
   display: flex;
   gap: 16px;
-  width: max-content;
+  justify-content: center;
   padding: 10px;
 }
 .insta-header {
@@ -5485,6 +5488,10 @@ span {
     }
     .about-paragraph {
         text-align: justify;
+    }
+    .insta-track {
+        
+  width: max-content;
     }
 }
 

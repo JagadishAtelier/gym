@@ -5481,7 +5481,7 @@ span {
     .navbar-center{
         width: 95%;
         border-radius: 20px;
-        height: 84vh;
+        height: auto;
         transform: translateX(-10px) !important;
         background: rgba(0, 0, 0, 0.185);
             backdrop-filter: blur(10px) saturate(120%);
@@ -5493,6 +5493,11 @@ span {
     .insta-track { 
   width: max-content;
     }
+    .nav-menu .w-list-unstyled{
+        padding: 0 !important;
+        height: max-content !important;
+    }
+    
 }
 
 @media(max-width: 480px) {

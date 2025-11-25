@@ -5162,7 +5162,7 @@ span {
     }
 
     .testi-left {
-        aspect-ratio: 3/2;
+        aspect-ratio: 2/2;
         min-height: auto
     }
 }

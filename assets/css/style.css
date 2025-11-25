@@ -5019,6 +5019,9 @@ figcaption {
     .hero {
         background-position: 30%
     }
+    .hero-swiper .swiper-slide:nth-child(2) .hero {
+  background-position: center 50%;
+}
 
     .hero-gradient-overlay {
         height: 100%
@@ -5388,7 +5391,7 @@ figcaption {
         flex-flow: column;
         justify-content: start;
         align-items: flex-start;
-        padding-left: 1rem;
+        padding-left: 0.5rem;
     }
     .contact-phone::before, .contact-email::before  {
         width: 22px;
@@ -5400,6 +5403,9 @@ figcaption {
     .navbar-center{
         width: 100%;
         border-radius: 20px;
+        background: rgba(0, 0, 0, 0.185);
+            backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
     }
 }
 
@@ -5411,4 +5417,20 @@ figcaption {
     .navbar-logo {
         height: 50px;
     }
+}
+
+.unmute-btn {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  font-size: 13px;
+  display: none;
+  z-index: 10;
+  cursor: pointer;
 }

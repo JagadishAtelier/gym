@@ -752,6 +752,7 @@
           <polygon points="16,12 52,32 16,52"/>
         </svg>
       </div>
+      <button class="unmute-btn">🔊 Tap to unmute</button>
     </div>
 
     <div class="reel-card">
@@ -902,7 +903,7 @@
         <div class="w-layout-grid locator-grid">
           <div id="w-node-_413beaa9-9d4a-771e-893a-e4b1c4e4fdab-f7b75dd1" class="locator-left">
 
-            <div id="w-node-_7a846a9c-32bb-bdaa-fc23-421d60558a69-f7b75dd1" class="global-section-name">Location
+            <div id="w-node-_7a846a9c-32bb-bdaa-fc23-421d60558a69-f7b75dd1" class="global-section-name locator-heading">Location
             </div>
             <div class="map-wrapper">
 
@@ -1288,10 +1289,10 @@
 const heroSwiper = new Swiper(".hero-swiper", {
   loop: true,
   speed: 600,
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false
-  },
+  // autoplay: {
+  //   delay: 4000,
+  //   disableOnInteraction: false
+  // },
   effect: "slide",
   observer: true,
   observeParents: true,
@@ -1346,7 +1347,6 @@ function isMobile() {
   return window.innerWidth < 768;
 }
 
-// Stop all other videos
 function stopOtherVideos(currentVideo) {
   allVideos.forEach(video => {
     if (video !== currentVideo) {
@@ -1357,37 +1357,44 @@ function stopOtherVideos(currentVideo) {
   });
 }
 
-// Auto play first video on mobile
+
+// ✅ Auto play first video on mobile (BUT keep overlay visible)
 window.addEventListener("load", () => {
 
   if (isMobile() && allVideos.length > 0) {
+
     const firstVideo = allVideos[0];
     firstVideo.muted = true;
+
     firstVideo.play().then(() => {
-      hideOverlay(firstVideo);
+      showOverlay(firstVideo); // ✅ SHOW overlay for muted play
       stopOtherVideos(firstVideo);
     }).catch(() => {});
   }
 
 });
 
-// Video click logic
+
+// Video logic
 allVideos.forEach(video => {
 
   const overlay = video.parentElement.querySelector(".video-overlay");
   let clickTimer = null;
 
-  // Overlay click → Play
+  // Overlay click → Unmute + Play
   if (overlay) {
     overlay.addEventListener("click", (e) => {
       e.stopPropagation();
       stopOtherVideos(video);
+
       video.muted = false;
       video.play();
+
+      hideOverlay(video); // ✅ hide only after unmuting
     });
   }
 
-  // SINGLE CLICK → Toggle play / pause
+  // Single click → Toggle Play/Pause
   video.addEventListener("click", () => {
 
     if (clickTimer !== null) return;
@@ -1398,15 +1405,20 @@ allVideos.forEach(video => {
       if (video.paused) {
         stopOtherVideos(video);
         video.play();
+
+        // If unmuted → hide overlay
+        if (!video.muted) hideOverlay(video);
+
       } else {
         video.pause();
+        showOverlay(video);
       }
 
     }, 250);
 
   });
 
-  // DOUBLE CLICK → Redirect
+  // Double click → Redirect
   video.addEventListener("dblclick", () => {
 
     if (clickTimer) {
@@ -1418,21 +1430,25 @@ allVideos.forEach(video => {
 
   });
 
-  // On play → hide overlay
+  // If video starts playing
   video.addEventListener("play", () => {
-    hideOverlay(video);
+    if (video.muted) {
+      showOverlay(video);    // ✅ keep overlay for muted video
+    } else {
+      hideOverlay(video);    // ✅ hide overlay when sound ON
+    }
   });
 
-  // On pause → show overlay
   video.addEventListener("pause", () => {
     showOverlay(video);
   });
 
-  // On end → show overlay
   video.addEventListener("ended", () => {
     showOverlay(video);
   });
+
 });
+
 </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

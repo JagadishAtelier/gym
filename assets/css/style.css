@@ -5308,7 +5308,21 @@ figcaption {
     height: 50px;
     fill: white;
 }
+.insta-container {
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: 0;
+}
 
+.insta-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  padding: 10px;
+}
 .insta-header {
     display: flex;
     align-items: center;
@@ -5341,13 +5355,17 @@ figcaption {
 
 /* Desktop - 4 slides in view, show overlay */
 @media(max-width: 768px) {
-    .swiper-wrapper {
+     .instaSwiper .swiper-wrapper {
         display: flex;
         justify-content: center;
     }
 
-    .swiper-slide {
-        width: 100% !important;
+   .instaSwiper .swiper-slide {
+      /* Let Swiper calculate width for 2 slides on tablet */
+      width: auto !important;
+  }
+  .mobile-slide {
+        display: block !important;
     }
 
     .video-overlay {
@@ -5365,15 +5383,6 @@ figcaption {
         position: absolute;
         inset: 0%
     }
-
-    .swiper-slide {
-        width: 80%;
-    }
-
-    .mobile-slide {
-        display: block !important;
-    }
-
     .contact-links {
         margin-top: 0.5rem;
         flex-flow: column;

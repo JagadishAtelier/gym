@@ -3494,6 +3494,7 @@ figcaption {
 }
 .about-heading{
     margin-bottom: 1rem;
+    font-size: var(--_typography---h3--font-size);
     text-align: center;
 }
 

@@ -133,7 +133,13 @@
         <div class="navbar-left"><a aria-label="flex Culture" href="/" aria-current="page"
             class="navbar-brand w-nav-brand w--current"><img src="./assets/images/logo.svg" loading="lazy" width="144"
               height="38" alt="flex Culture" class="navbar-logo"></a></div>
+              <div class="nav-button-wrapper"><a href="https://gym-management-system.theateliercreation.com/" class="button primary w-inline-block">
+                  <div class="button-inner">
+                    <div class="button-text">Log in</div>
+                  </div>
+                </a></div>
         <nav role="navigation" class="navbar-center w-nav-menu">
+          <div class="glass-overlay"></div>
           <ul role="list" class="nav-menu w-list-unstyled">
             <li class="nav-menu-item"><a href="#section-about" class="nav-link">About</a></li>
             <li class="nav-menu-item"><a href="#section-classes" class="nav-link">Classes</a></li>
@@ -144,13 +150,6 @@
               <div class="nav-button-wrapper mobile"><a href="#" class="button primary w-inline-block">
                   <div class="button-inner">
                     <div class="button-text">Lorem Ipsum</div>
-                  </div>
-                </a></div>
-            </li>
-            <li class="nav-menu-item hide-lg">
-              <div class="nav-button-wrapper"><a href="https://gym-management-system.theateliercreation.com/" class="button w-inline-block">
-                  <div class="button-inner">
-                    <div class="button-text">Login</div>
                   </div>
                 </a></div>
             </li>
@@ -403,15 +402,7 @@
             <div class="hero-gradient-overlay front"></div>
           </div>
         </div>
-
       </div>
-
-      <!-- Optional arrows -->
-      <!-- <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div> -->
-
-      <!-- Optional pagination dots -->
-      <!-- <div class="swiper-pagination"></div> -->
     </div>
 
   </section>
@@ -906,7 +897,7 @@
   </section>
   <section id="section-locations">
     <div class="w-layout-blockcontainer global-container w-container">
-      <div class="global-section-padding">
+      <div class="global-section-padding bottom-small">
         <div class="w-layout-grid locator-grid">
           <div id="w-node-_413beaa9-9d4a-771e-893a-e4b1c4e4fdab-f7b75dd1" class="locator-left">
 
@@ -977,9 +968,6 @@
                     later.</div>
                 </div>
               </div>
-              <div id="w-node-e2ec9c73-8789-9b6f-bf9a-984d16d4cedc-f7b75dd1" class="contact-links mt-4"><a href=""
-                class="contact-phone">+91 98765 43210</a><a href="" class="contact-email">flexculture@gmail.com</a></div>
-            </div>
             <!-- <div class="global-section-name">(OUR Location)</div>
             <h2 class="locator-heading">Locate Us</h2>
             <p class="locator-paragraph">Come feel the energy yourself. We’re located right in the heart of the city,
@@ -1159,7 +1147,7 @@
   <section id="section-contact">
     <div class="contact-section">
       <div class="w-layout-blockcontainer global-container w-container">
-        <div class="global-section-padding bottom-half">
+        <div class="global-section-padding bottom-small">
           <div class="w-layout-grid contact-wrapper">
             <!-- <div id="w-node-_7a846a9c-32bb-bdaa-fc23-421d60558a69-f7b75dd1" class="global-section-name">(ConTACT US)
             </div>
@@ -1218,6 +1206,9 @@
               <h2 data-w-id="b5b7eaf3-365c-3d11-3917-4a6f61d3ef5c" class="contact-mega">GET&nbsp;IN&nbsp;TOUCH</h2>
             </div>
           </div>
+          <div id="w-node-e2ec9c73-8789-9b6f-bf9a-984d16d4cedc-f7b75dd1" class="contact-links"><a href=""
+                class="contact-phone">+91 98765 43210</a><a href="" class="contact-email">flexculture@gmail.com</a></div>
+            </div>
         </div>
       </div>
     </div>
@@ -1227,11 +1218,11 @@
       <div class="footer-upper">
         <div class="footer-upper-wrapper">
           <div><a aria-label="flex Culture" href="/" class="footer-logo-link w-inline-block"><img
-                src="./assets/images/Flex_Culture_Gym-removebg-preview (1).png" loading="lazy" width="124" height="32"
+                src="./assets/images/logo.svg" loading="lazy" width="124" height="32"
                 alt="flex Culture" class="footer-logo"></a></div>
           <div class="footer-menus"><a href="#section-about" class="footer-menu">About</a><a href="#section-classes"
               class="footer-menu">Classes</a><a href="#section-pricing" class="footer-menu">Pricing</a><a
-              href="#section-locations" class="footer-menu">Locations</a><a href="#section-contact"
+              href="#section-locations" class="footer-menu">Locations</a><a href="#section-locations"
               class="footer-menu">Contact</a></div>
         </div>
       </div>
@@ -1292,7 +1283,7 @@
   </script>
   <script>
     const swiper = new Swiper(".instaSwiper", {
-      slidesPerView: 1.2,
+      slidesPerView: 1,
       spaceBetween: 15,
       centeredSlides: true,
       breakpoints: {

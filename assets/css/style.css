@@ -4387,7 +4387,7 @@ figcaption {
     .nav-link {
         mix-blend-mode: difference;
         padding-left: 0;
-        font-size: 2.5rem;
+        font-size: 1.7rem;
         font-weight: 400;
         transition-property: transform
     }

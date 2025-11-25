@@ -435,7 +435,9 @@ h6 {
     margin-bottom: 10px;
     font-weight: 700
 }
-
+.red{
+    color: red;
+}
 h1 {
     margin-top: 20px;
     font-size: 38px;
@@ -3378,10 +3380,77 @@ figcaption {
     text-transform: uppercase;
     margin-left: var(--_sizing---spacing--20);
 }
-
+span {
+  display: inline;
+  all: unset;
+  font: inherit;
+  color: inherit;
+}
 .about-paragraph {
     font-size: var(--_typography---h4--font-size);
+    color: #fff;
+    font-weight: 600;
     text-align: center;
+    opacity: 1;
+      white-space: normal;
+  word-spacing: normal;
+}
+.about-word {
+  display: inline-block;
+  opacity: 0.2;   /* 👈 low opacity before scroll */
+  transition: opacity 0.3s linear;
+}
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.scroll-text {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+  opacity: 0.8;
+}
+
+.scroll-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.05);
+  animation: bounce 1.6s infinite ease-in-out;
+}
+
+.scroll-arrow {
+  width: 22px;
+  height: 22px;
+  color: white;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Hide on very small screens (optional) */
+@media (max-width: 480px) {
+  .scroll-text {
+    font-size: 12px;
+  }
 }
 
 .hero-cta-text {
@@ -3550,8 +3619,11 @@ figcaption {
 
 .about-heading {
     margin-bottom: 1rem;
-    font-size: var(--_typography---h3--font-size);
+    font-size: var(--_typography---h1--font-size);
     text-align: center;
+}
+.mb-2{
+    margin-bottom: 1.5rem;
 }
 
 .usp-number {
@@ -4371,6 +4443,7 @@ figcaption {
     .navbar-center {
         background-color: #0000
     }
+    
 
     .nav-menu {
         padding: var(--_sizing---spacing--40)var(--_sizing---spacing--16);
@@ -4517,7 +4590,8 @@ figcaption {
     }
 
     .trainer-grid {
-        grid-template-columns: 1fr 1fr 1fr 1fr
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding-bottom: 0 !important;
     }
 }
 
@@ -5401,11 +5475,16 @@ figcaption {
         font-size: 0.9rem;
     }
     .navbar-center{
-        width: 100%;
+        width: 95%;
         border-radius: 20px;
+        height: 84vh;
+        transform: translateX(-10px) !important;
         background: rgba(0, 0, 0, 0.185);
             backdrop-filter: blur(10px) saturate(120%);
     -webkit-backdrop-filter: blur(10px) saturate(120%);
+    }
+    .about-paragraph {
+        text-align: justify;
     }
 }
 
@@ -5433,4 +5512,11 @@ figcaption {
   display: none;
   z-index: 10;
   cursor: pointer;
+}
+.gradient-red-text {
+  background: linear-gradient(190deg, #ff4141, #ff0000, #a60000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }

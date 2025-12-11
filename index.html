@@ -179,8 +179,8 @@
 
         <!-- SLIDE 1 -->
         <div class="swiper-slide">
-          <div data-w-id="5f581194-0b05-262d-e9fc-b19f37795ce9" class="hero"
-            style="background-image: url('./assets/images/hero-banner1.jpg'); background-position: top;">
+          <div data-w-id="5f581194-0b05-262d-e9fc-b19f37795ce9" class="hero hero-banner"
+            style="background-position: top;">
             <div class="w-layout-blockcontainer global-container w-container">
               <div class="hero-inner">
                 <div id="w-node-_321abe9c-9b88-a336-252c-8c12ca91fee5-f7b75dd1" class="hero-left">
@@ -406,13 +406,12 @@
       <div class="w-layout-blockcontainer global-container full w-container">
         <div class="logos-wrapper">
           <div class="logos-text">Trusted by Top Nutrition Brands: </div>
-          <div class="logo-list"><img src="assets/images/bolt.png" loading="lazy"
-              alt="Community 3" class="logo-image"><img src="assets/images/Myprotein.jpeg"
-              loading="lazy" alt="Community 5" class="logo-image"><img
-              src="assets/images/Nutrabay.png" loading="lazy" alt="Community 6"
-              class="logo-image"><img src="assets/images/Dymatize.jpeg" loading="lazy"
-              alt="Community 9" class="logo-image"> <img src="assets/images/5xl.jpeg" loading="lazy"
-              alt="Community 9" class="logo-image"></div>
+          <div class="logo-list"><img src="assets/images/bolt.png" loading="lazy" alt="Community 3"
+              class="logo-image"><img src="assets/images/Myprotein.jpeg" loading="lazy" alt="Community 5"
+              class="logo-image"><img src="assets/images/Nutrabay.png" loading="lazy" alt="Community 6"
+              class="logo-image"><img src="assets/images/Dymatize.jpeg" loading="lazy" alt="Community 9"
+              class="logo-image"> <img src="assets/images/5xl.jpeg" loading="lazy" alt="Community 9" class="logo-image">
+          </div>
           <div class="logos-text">and more</div>
         </div>
       </div>
@@ -548,15 +547,16 @@
             <div class="class-card-overlay"></div>
           </div>
           <div data-w-id="335a10fc-3768-1181-ea49-0a4ff7239eca" style="opacity:0" class="class-card"><img
-              src="assets/body-building.jpeg"
-              loading="lazy" sizes="(max-width: 767px) 25vw, (max-width: 991px) 182px, 235px"
+              src="assets/body-building.jpeg" loading="lazy"
+              sizes="(max-width: 767px) 25vw, (max-width: 991px) 182px, 235px"
               srcset="https://middleeasy.com/wp-content/uploads/2023/08/Top-Natural-Bodybuilders.jpg 500w, https://middleeasy.com/wp-content/uploads/2023/08/Top-Natural-Bodybuilders.jpg 800w, https://middleeasy.com/wp-content/uploads/2023/08/Top-Natural-Bodybuilders.jpg 1080w, https://middleeasy.com/wp-content/uploads/2023/08/Top-Natural-Bodybuilders.jpg 1232w"
               alt="Combatline" class="class-card-image">
             <div class="class-card-content">
               <h3 class="class-card-title">Body Building</h3>
               <div data-w-id="335a10fc-3768-1181-ea49-0a4ff7239ecf" class="class-description-wrapper">
-                <p class="class-description">Build muscle, increase strength, and sculpt your physique with precision training.</p>
-                </div>
+                <p class="class-description">Build muscle, increase strength, and sculpt your physique with precision
+                  training.</p>
+              </div>
             </div>
             <div class="class-card-overlay"></div>
           </div>
@@ -567,7 +567,8 @@
             <div class="class-card-content">
               <h3 class="class-card-title">Hyrox Training</h3>
               <div data-w-id="935f4edb-f58a-67b6-d8df-f5af1016a7c0" class="class-description-wrapper">
-                <p class="class-description">Push your limits and enhance your endurance with our Hyrox Training session.</p>
+                <p class="class-description">Push your limits and enhance your endurance with our Hyrox Training
+                  session.</p>
               </div>
             </div>
             <div class="class-card-overlay"></div>
@@ -740,8 +741,6 @@
 
       <!-- LEFT CONTENT -->
       <div class="hero-sport-left">
-        
-
         <h2 class="hero-title">
           We Don't Believe in <span class="gradient-red-text">Ordinary Cardio</span>
         </h2>
@@ -755,14 +754,15 @@
 
         <p class="hero-desc">
           Enjoy fun and engaging activities like <span class="highlight"> football, basketball, volleyball,
-          badminton,</span> and many more exciting games.
+            badminton,</span> and many more exciting games.
         </p>
 
-        <a href="https://gym-management-system.theateliercreation.com/" target="_blank" class="button primary w-inline-block">
-              <div class="button-inner">
-                <div class="button-text">Join Now</div>
-              </div>
-            </a>
+        <a href="https://gym-management-system.theateliercreation.com/" target="_blank"
+          class="button primary w-inline-block">
+          <div class="button-inner">
+            <div class="button-text">Join Now</div>
+          </div>
+        </a>
 
       </div>
 
@@ -777,7 +777,12 @@
         </div>
 
         <!-- MAIN IMAGE -->
-        <img src="assets/images/runner.avif" alt="Runner" class="hero-image">
+        <div class="hero-slider">
+          <img src="assets/images/runner.avif" class="hero-slide active">
+          <img src="assets/images/runner1.png" class="hero-slide">
+          <img src="assets/images/runner2.png" class="hero-slide">
+          <img src="assets/images/runner3.png" class="hero-slide">
+        </div>
       </div>
 
     </div>
@@ -1567,6 +1572,19 @@
       });
     });
   </script>
+  <script>
+  let index = 0;
+  const slides = document.querySelectorAll(".hero-slide");
+
+  function showSlide() {
+    slides.forEach((slide) => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+    index = (index + 1) % slides.length;
+  }
+
+  setInterval(showSlide, 2500); // auto-slide every 2.5s
+</script>
+
 
 </body>
 

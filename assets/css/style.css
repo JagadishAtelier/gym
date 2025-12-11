@@ -5667,3 +5667,45 @@ span {
     font-size: 30px;
   }
 }
+
+.hero-banner {
+  background-image: url('../images/hero-banner1.jpg');
+  background-size: cover;
+  background-position: top;
+}
+
+/* Mobile Image */
+@media (max-width: 768px) {
+  .hero-banner {
+    background-image: url('../images/hero-banner-mobile.webp');
+      background-position: bottom;
+  }
+}
+
+.custom-hero-swiper{
+    width: 50%;
+}
+
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 520px; /* adjust as needed */
+  overflow: hidden;
+}
+
+/* SLIDES */
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  object-fit: contain;
+  transition: opacity 1s ease-in-out;
+}
+
+/* ACTIVE SLIDE */
+.hero-slide.active {
+  opacity: 1;
+}

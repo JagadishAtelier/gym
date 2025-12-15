@@ -5925,8 +5925,24 @@ span {
 }
 
 .product-card:hover .product-footer {
-  bottom: 10px;
+  animation: bounceUp 0.8s ease-out forwards;
 }
+
+@keyframes bounceUp {
+  0% {
+    bottom: -110px;
+  }
+  60% {
+    bottom: 15px; /* overshoot */
+  }
+  80% {
+    bottom: 6px; /* bounce down */
+  }
+  100% {
+    bottom: 10px; /* final position */
+  }
+}
+
 
 /* TEXT */
 .product-info h4 {

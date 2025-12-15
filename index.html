@@ -1693,14 +1693,38 @@
 
       return cardw.offsetWidth + gap + 30;
     };
+     const updateSliderButtons = () => {
+    const scrollLeft = slider.scrollLeft;
+    const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+    // Hide prev on first card
+    if (scrollLeft <= 0) {
+      prevBtn.style.display = "none";
+    } else {
+      prevBtn.style.display = "flex";
+    }
+
+    // Hide next on last card
+    if (scrollLeft >= maxScroll - 2) {
+      nextBtn.style.display = "none";
+    } else {
+      nextBtn.style.display = "flex";
+    }
+  };
+
+  // Update on scroll
+  slider.addEventListener("scroll", updateSliderButtons);
 
     nextBtn.addEventListener("click", () => {
       slider.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+      setTimeout(updateSliderButtons, 300);
     });
 
     prevBtn.addEventListener("click", () => {
       slider.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+      setTimeout(updateSliderButtons, 300);
     });
+    window.addEventListener("load", updateSliderButtons);
   </script>
 
 

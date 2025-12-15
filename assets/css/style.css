@@ -5820,7 +5820,7 @@ span {
 
 /* card width for slider */
 .product-card {
-  /* min-width: 320px; */
+  min-width: 320px;
   flex-shrink: 0;
 }
 
@@ -5976,7 +5976,7 @@ span {
 @media (max-width: 322px) {
 .product-card{
   height: 420px;
-  min-width: none;
+  min-width: 100% !important;
 }
 .featured-section {
     padding: 0px 15px 60px;

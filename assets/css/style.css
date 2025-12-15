@@ -5810,6 +5810,7 @@ span {
   gap: 30px;
   overflow-x: auto;
   scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
   padding-bottom: 10px;
 }
 
@@ -5820,6 +5821,7 @@ span {
 
 /* card width for slider */
 .product-card {
+   scroll-snap-align: start;
   min-width: 320px;
   flex-shrink: 0;
 }

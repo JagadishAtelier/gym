@@ -1620,28 +1620,29 @@
 
     const products = [
       {
-        title: "Ancient Omegas Pills",
-        price: "From ₹990.00",
-        compprice: "From ₹1990.00",
-        image: "https://i.pinimg.com/236x/64/e7/fa/64e7fae47ea47b453233049765d29521.jpg"
+      title: "Ancient Omegas Pills",
+      subtitle: "Heart & Joint Support",
+      image: "https://i.pinimg.com/236x/64/e7/fa/64e7fae47ea47b453233049765d29521.jpg",
+      price: "₹1,299"
       },
       {
-        title: "Alpha Potential Pre-Workout",
-        price: "From ₹999.00",
-        compprice: "From ₹1599.00",
-        image: "https://i.pinimg.com/236x/41/93/1c/41931ce3b2ea6a63cd47055a241416b9.jpg"
+      title: "Alpha Potential Pre-Workout",
+      subtitle: "Energy & Endurance Boost",
+      image: "https://i.pinimg.com/236x/41/93/1c/41931ce3b2ea6a63cd47055a241416b9.jpg",
+      price: "₹1,599"
       },
       {
-        title: "EFX 3-in-1 Body Build Kit",
-        price: "From ₹9990.00",
-        compprice: "From ₹19990.00",
-        image: "https://i.pinimg.com/736x/6a/5f/a7/6a5fa780f25ddfe51309910d3ffcce67.jpg"
-      }, {
-        title: "Ancient Omegas Pills",
-        price: "From ₹990.00",
-        compprice: "From ₹1990.00",
-        image: "https://i.pinimg.com/236x/64/e7/fa/64e7fae47ea47b453233049765d29521.jpg"
+      title: "EFX 3-in-1 Body Build Kit",
+      subtitle: "Muscle Growth Formula",
+      image: "https://i.pinimg.com/736x/6a/5f/a7/6a5fa780f25ddfe51309910d3ffcce67.jpg",
+      price: "₹2,499"
       },
+      {
+      title: "Ancient Omegas Pills",
+      subtitle: "Heart & Joint Support",
+      image: "https://i.pinimg.com/236x/64/e7/fa/64e7fae47ea47b453233049765d29521.jpg",
+      price: "₹1,299"
+      }
     ];
 
     const container = document.getElementById("featuredProducts");
@@ -1659,10 +1660,10 @@
         <div class="product-footer">
           <div class="product-info">
             <h4>${product.title}</h4>
-            <div class="price-info"><p class="price">${product.price}</p><p class='comp'>${product.compprice}</p></div>
+            <div class="price-info"><p class="price">${product.subtitle}</p></div>
           </div>
 
-          <a href="${whatsappLink}" target="_blank" class="product-arrow">
+          <a href="${whatsappLink}" target="_blank" title="Buy Now" class="product-arrow">
             <img src="./assets/images/bag.svg" alt="${product.title}">
           </a>
         </div>

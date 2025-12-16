@@ -5895,7 +5895,7 @@ span {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -110px;
+  bottom: -120px;
   width: 95%;
   margin-top: 30px;
   padding: 14px 16px;
@@ -5946,7 +5946,7 @@ span {
 
 /* TEXT */
 .product-info h4 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 800;
   color: #ffffff;
 }
@@ -5972,17 +5972,10 @@ span {
   cursor: pointer;
   transition: background 0.2s ease;
 }
-
-.comp {
-  text-decoration: line-through;
-  color: rgb(233, 233, 233);
-  opacity: 70%;
-  font-size: 10px;
-}
 .price {
-  font-weight: 800;
-  font-size: 20px;
-  color: #fff;
+  /* font-weight: 400; */
+  font-size: 14px;
+  color: #dddddd;
 }
 .price-info {
   display: flex;

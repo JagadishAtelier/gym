@@ -5823,6 +5823,7 @@ span {
 .product-card {
    scroll-snap-align: start;
   min-width: 320px;
+  max-width: 320px;
   flex-shrink: 0;
 }
 

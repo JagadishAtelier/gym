@@ -530,7 +530,8 @@
 
         <button class="slider-btn next"><svg width="32" height="32" viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l6-6-6-6" />
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M7 16l6-6-6-6" />
           </svg></button>
       </div>
 
@@ -1616,105 +1617,104 @@
   </script>
 
   <script>
-    const phoneNumber = "918888888888";
-
-    const products = [
-      {
-      title: "Ancient Omegas Pills",
-      subtitle: "Heart & Joint Support",
-      image: "https://i.pinimg.com/236x/64/e7/fa/64e7fae47ea47b453233049765d29521.jpg",
-      price: "₹1,299"
-      },
-      {
-      title: "Alpha Potential Pre-Workout",
-      subtitle: "Energy & Endurance Boost",
-      image: "https://i.pinimg.com/236x/41/93/1c/41931ce3b2ea6a63cd47055a241416b9.jpg",
-      price: "₹1,599"
-      },
-      {
-      title: "EFX 3-in-1 Body Build Kit",
-      subtitle: "Muscle Growth Formula",
-      image: "https://i.pinimg.com/736x/6a/5f/a7/6a5fa780f25ddfe51309910d3ffcce67.jpg",
-      price: "₹2,499"
-      },
-      {
-      title: "Ancient Omegas Pills",
-      subtitle: "Heart & Joint Support",
-      image: "https://i.pinimg.com/236x/64/e7/fa/64e7fae47ea47b453233049765d29521.jpg",
-      price: "₹1,299"
-      }
-    ];
+    const phoneNumber = "917904202265";
+    const API_URL =
+      "https://gms-backend-vdwc.onrender.com/api/v1/gms/product/product?page=1&limit=50";
 
     const container = document.getElementById("featuredProducts");
+    const slider = container;
+    const nextBtn = document.querySelector(".slider-btn.next");
+    const prevBtn = document.querySelector(".slider-btn.prev");
 
-    container.innerHTML = products.map(product => {
-      const message = `Hi, I am interested in ${product.title}. Please share more details.`;
-      const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    // 🔹 BASE URL for images (IMPORTANT)
+    const IMAGE_BASE_URL = "https://gms-backend-vdwc.onrender.com";
 
-      return `
-      <div class="product-card" data-link="${whatsappLink}">
-        <div class="product-image">
-          <img src="${product.image}" alt="${product.title}">
-        </div>
+    // ==============================
+    // FETCH & RENDER PRODUCTS
+    // ==============================
+    async function loadProducts() {
+      try {
+        const res = await fetch(API_URL);
+        const json = await res.json();
 
-        <div class="product-footer">
-          <div class="product-info">
-            <h4>${product.title}</h4>
-            <div class="price-info"><p class="price">${product.subtitle}</p></div>
+        const products = json?.data?.data || [];
+
+        if (!products.length) {
+          container.innerHTML = "<p>No products found</p>";
+          return;
+        }
+
+        container.innerHTML = products
+          .map((product) => {
+            const message = `Hi, I am interested in ${product.title}. Please share more details.`;
+            const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+              message
+            )}`;
+
+            const imageUrl = product.product_image_url
+              ? IMAGE_BASE_URL + product.product_image_url
+              : "./assets/images/placeholder.jpg";
+
+            return `
+          <div class="product-card" data-link="${whatsappLink}">
+            <div class="product-image">
+              <img src="${imageUrl}" alt="${product.title}">
+            </div>
+
+            <div class="product-footer">
+              <div class="product-info">
+                <h4>${product.title}</h4>
+                <div class="price-info">
+                  <p class="price">${product.description ? product.description : "Energy & Endurance Boost"}</p>
+                </div>
+              </div>
+
+              <a href="${whatsappLink}" target="_blank" class="product-arrow">
+                <img src="./assets/images/bag.svg" alt="Buy ${product.title}">
+              </a>
+            </div>
           </div>
+        `;
+          })
+          .join("");
 
-          <a href="${whatsappLink}" target="_blank" title="Buy Now" class="product-arrow">
-            <img src="./assets/images/bag.svg" alt="${product.title}">
-          </a>
-        </div>
-      </div>
-    `;
-    }).join("");
+        updateSliderButtons();
+      } catch (err) {
+        console.error("Failed to load products", err);
+        container.innerHTML = "<p>Error loading products</p>";
+      }
+    }
 
+    // ==============================
+    // CARD CLICK HANDLING
+    // ==============================
     container.addEventListener("click", (e) => {
       const card = e.target.closest(".product-card");
       if (!card) return;
 
-      // Prevent double open when clicking bag icon
       if (e.target.closest(".product-arrow")) return;
 
       window.open(card.dataset.link, "_blank");
     });
 
-    const slider = document.getElementById("featuredProducts");
-    const nextBtn = document.querySelector(".slider-btn.next");
-    const prevBtn = document.querySelector(".slider-btn.prev");
-
+    // ==============================
+    // SLIDER LOGIC
+    // ==============================
     const getScrollAmount = () => {
-      const cardw = document.querySelector(".product-card");
-      if (!cardw) return 350;
+      const card = document.querySelector(".product-card");
+      if (!card) return 350;
 
-      const style = window.getComputedStyle(cardw);
-      const gap = parseInt(style.marginRight) || 0;
-
-      return cardw.offsetWidth + gap + 30;
+      return card.offsetWidth + 30;
     };
-     const updateSliderButtons = () => {
-    const scrollLeft = slider.scrollLeft;
-    const maxScroll = slider.scrollWidth - slider.clientWidth;
 
-    // Hide prev on first card
-    if (scrollLeft <= 0) {
-      prevBtn.style.display = "none";
-    } else {
-      prevBtn.style.display = "flex";
-    }
+    const updateSliderButtons = () => {
+      const scrollLeft = slider.scrollLeft;
+      const maxScroll = slider.scrollWidth - slider.clientWidth;
 
-    // Hide next on last card
-    if (scrollLeft >= maxScroll - 2) {
-      nextBtn.style.display = "none";
-    } else {
-      nextBtn.style.display = "flex";
-    }
-  };
-
-  // Update on scroll
-  slider.addEventListener("scroll", updateSliderButtons);
+      prevBtn.style.display = scrollLeft <= 0 ? "none" : "flex";
+      nextBtn.style.display =
+        scrollLeft >= maxScroll - 2 ? "none" : "flex";
+    };
 
     nextBtn.addEventListener("click", () => {
       slider.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
@@ -1725,8 +1725,15 @@
       slider.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
       setTimeout(updateSliderButtons, 300);
     });
-    window.addEventListener("load", updateSliderButtons);
+
+    slider.addEventListener("scroll", updateSliderButtons);
+
+    // ==============================
+    // INIT
+    // ==============================
+    window.addEventListener("load", loadProducts);
   </script>
+
 
 
 </body>

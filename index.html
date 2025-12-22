@@ -1653,12 +1653,15 @@
 
             const imageUrl = product.product_image_url
               ? IMAGE_BASE_URL + product.product_image_url
-              : "./assets/images/placeholder.jpg";
+              : "https://i.pinimg.com/236x/64/e7/fa/64e7fae47ea47b453233049765d29521.jpg";
 
             return `
           <div class="product-card" data-link="${whatsappLink}">
             <div class="product-image">
-              <img src="${imageUrl}" alt="${product.title}">
+              <img src="${imageUrl}" alt="${product.title}" onError={(e) => {
+    e.currentTarget.src =
+      "https://i.pinimg.com/236x/64/e7/fa/64e7fae47ea47b453233049765d29521.jpg";
+  }}>
             </div>
 
             <div class="product-footer">

@@ -5388,6 +5388,9 @@ span {
   margin: auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  height: -webkit-fill-available;
+  display: flex;
+  align-items: center;
 }
 
 .reel-header {

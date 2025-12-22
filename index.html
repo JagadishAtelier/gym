@@ -837,7 +837,7 @@
       <div class="insta-track">
 
         <div class="reel-card">
-          <video class="reel-video" src="assets/videos/reels1.mp4" muted playsinline
+          <video class="reel-video" src="assets/videos/reels1.webm" muted playsinline
             data-link="https://instagram.com/flexculture_01"></video>
           <div class="video-overlay">
             <svg viewBox="0 0 64 64">
@@ -848,7 +848,7 @@
         </div>
 
         <div class="reel-card">
-          <video class="reel-video" src="assets/videos/reels2.mp4" muted playsinline
+          <video class="reel-video" src="assets/videos/reels2.webm" muted playsinline
             data-link="https://instagram.com/flexculture_01"></video>
           <div class="video-overlay">
             <svg viewBox="0 0 64 64">
@@ -858,7 +858,7 @@
         </div>
 
         <div class="reel-card">
-          <video class="reel-video" src="assets/videos/reels3.mp4" muted playsinline
+          <video class="reel-video" src="assets/videos/reels3.webm" muted playsinline
             data-link="https://instagram.com/flexculture_01"></video>
           <div class="video-overlay">
             <svg viewBox="0 0 64 64">
@@ -1619,7 +1619,7 @@
   <script>
     const phoneNumber = "917904202265";
     const API_URL =
-      "https://gms-backend-vdwc.onrender.com/api/v1/gms/product/product?page=1&limit=50";
+      "https://gms-backend-vdwc.onrender.com/api/v1/gms/product/product?page=1&limit=10";
 
     const container = document.getElementById("featuredProducts");
     const slider = container;
@@ -1658,10 +1658,7 @@
             return `
           <div class="product-card" data-link="${whatsappLink}">
             <div class="product-image">
-              <img src="${imageUrl}" alt="${product.title}" onError={(e) => {
-    e.currentTarget.src =
-      "https://i.pinimg.com/236x/64/e7/fa/64e7fae47ea47b453233049765d29521.jpg";
-  }}>
+              <img src="${imageUrl}" alt="${product.title}" onerror="this.onerror=null;this.src='https://i.pinimg.com/236x/64/e7/fa/64e7fae47ea47b453233049765d29521.jpg';">
             </div>
 
             <div class="product-footer">

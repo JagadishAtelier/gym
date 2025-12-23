@@ -577,7 +577,7 @@ label {
 
 .w-input,
 .w-select {
-  color: #333;
+  color: #fff;
   vertical-align: middle;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -4160,7 +4160,7 @@ span {
   padding-bottom: 100vh;
   align-items: center;
   display: flex;
-  padding-top: 400vh;
+  padding-top: 250vh;
   padding-bottom: 100vh;
   justify-content: center;
 }

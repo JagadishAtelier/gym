@@ -3874,6 +3874,7 @@ span {
   object-position: top center;
   width: 100%;
   height: 100%;
+  /* filter: grayscale(100); */
 }
 
 .testi-quote {

@@ -4188,7 +4188,7 @@ span {
   aspect-ratio: 1;
   width: 100%;
   border-radius: var(--_sizing---radius--8);
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .trainer-name {

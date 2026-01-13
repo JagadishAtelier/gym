@@ -855,10 +855,22 @@
     </div>
 
 
-    <div class="insta-container">
-      <div class="insta-track">
+    <div class="insta-container swiper instaSwiper overflow-visible">
+      <div class="swiper-wrapper insta-track overflow-visible">
 
-        <div class="reel-card">
+        <div class="reel-card swiper-slide" style="height: -webkit-fill-available;
+    display: flex;">
+          <video class="reel-video" src="assets/videos/reels0.mp4" muted playsinline
+            data-link="https://instagram.com/flexculture_01"></video>
+          <div class="video-overlay">
+            <svg viewBox="0 0 64 64">
+              <polygon points="16,12 52,32 16,52" />
+            </svg>
+          </div>
+          <button class="unmute-btn">🔊 Tap to unmute</button>
+        </div>
+
+        <div class="reel-card swiper-slide">
           <video class="reel-video" src="assets/videos/reels1.mp4" muted playsinline
             data-link="https://instagram.com/flexculture_01"></video>
           <div class="video-overlay">
@@ -869,7 +881,7 @@
           <button class="unmute-btn">🔊 Tap to unmute</button>
         </div>
 
-        <div class="reel-card">
+        <div class="reel-card swiper-slide">
           <video class="reel-video" src="assets/videos/reels2.mp4" muted playsinline
             data-link="https://instagram.com/flexculture_01"></video>
           <div class="video-overlay">
@@ -879,7 +891,7 @@
           </div>
         </div>
 
-        <div class="reel-card">
+        <div class="reel-card swiper-slide">
           <video class="reel-video" src="assets/videos/reels3.mp4" muted playsinline
             data-link="https://instagram.com/flexculture_01"></video>
           <div class="video-overlay">
@@ -889,7 +901,7 @@
           </div>
         </div>
 
-        <div class="reel-card">
+        <div class="reel-card swiper-slide">
           <video class="reel-video" src="assets/videos/reels4.mp4" muted playsinline
             data-link="https://instagram.com/flexculture_01"></video>
           <div class="video-overlay">
@@ -1580,6 +1592,37 @@
 
 
 
+  <script>
+    // ---------------- INSTA REELS SLIDER ----------------
+    // Only init if more than 4 items (or always as requested by user's condition which is met)
+    const reelCards = document.querySelectorAll('.reel-card');
+    if (reelCards.length > 4) {
+      const instaSwiper = new Swiper(".instaSwiper", {
+        slidesPerView: 1.2,
+        spaceBetween: 16,
+        centeredSlides: true,
+        loop: true,
+        grabCursor: true,
+        breakpoints: {
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 16,
+            centeredSlides: false
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+            centeredSlides: false
+          },
+          992: {
+            slidesPerView: 4,
+            spaceBetween: 24,
+            centeredSlides: false
+          }
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>

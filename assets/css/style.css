@@ -5494,6 +5494,9 @@ span {
     position: absolute;
     inset: 0%;
   }
+  .hero-slider{
+    height:400px !important;
+  }
 
   .contact-links {
     margin-top: 0.5rem;
